@@ -14,7 +14,7 @@ mongoose
   .then((conn) =>
     console.log(
       `DB connected. name: ${conn.connection.name} port: ${conn.connection.port} host: ${conn.connection.host}`
-        .green.underline
+        .green.underline.bold
     )
   )
   .catch((err) => console.log(`${err}`.red.underline.bold));
@@ -34,7 +34,7 @@ app.use("/api/v1/bootcamps", bootcamp);
 
 app.listen(PORT, () =>
   console.log(
-    `Server running in ${process.env.NODE_ENV} on port: ${PORT}`.green.underline
-      .bold
+    `Server running in ${process.env.NODE_ENV} on port: ${PORT}`.yellow
+      .underline
   )
 );
