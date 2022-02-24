@@ -12,8 +12,9 @@ const PORT = process.env.PORT || 8080;
 // database connection
 mongoose
   .connect(process.env.MONGO_URI, {
+    // These two options are added for mongoose validation
     autoIndex: true, //make this also true
-    family: 4,
+    family: 4, //Use IPv4, skip trying IPv6
   })
   .then((conn) =>
     console.log(
