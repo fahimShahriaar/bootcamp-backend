@@ -55,6 +55,7 @@ exports.createBootcamp = async (req, res, next) => {
       data: result,
     });
   } catch (error) {
+    console.log(error.message);
     res.status(400).json({
       success: false,
       msg: error,

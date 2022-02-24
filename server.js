@@ -11,7 +11,10 @@ const PORT = process.env.PORT || 8080;
 
 // database connection
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    autoIndex: true, //make this also true
+    family: 4,
+  })
   .then((conn) =>
     console.log(
       `mongodb connected. Connection name: ${conn.connection.name} port: ${conn.connection.port} host: ${conn.connection.host}`
