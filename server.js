@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const colors = require("colors");
 
 const app = express();
+app.use(express.json());
 const PORT = process.env.PORT || 8080;
 
 // database connection
@@ -13,8 +14,8 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then((conn) =>
     console.log(
-      `DB connected. name: ${conn.connection.name} port: ${conn.connection.port} host: ${conn.connection.host}`
-        .green.underline.bold
+      `mongodb connected. Connection name: ${conn.connection.name} port: ${conn.connection.port} host: ${conn.connection.host}`
+        .blue.underline.bold
     )
   )
   .catch((err) => console.log(`${err}`.red.underline.bold));
